@@ -124,11 +124,25 @@ if (themeToggle) {
     if (themeToggle.checked) {
       body.classList.add('light-mode');
       localStorage.setItem('theme', 'light');
+      // Update particles color for light mode
+      updateParticlesColor('#ff4500', '#ff6b35');
     } else {
       body.classList.remove('light-mode');
       localStorage.setItem('theme', 'dark');
+      // Update particles color for dark mode
+      updateParticlesColor('#ff4500', '#ff6b35');
     }
   });
+}
+
+// Function to update particles color
+function updateParticlesColor(particleColor: string, lineColor: string) {
+  if (typeof particlesJS !== 'undefined' && (window as any).pJSDom && (window as any).pJSDom[0]) {
+    const pJS = (window as any).pJSDom[0].pJS;
+    pJS.particles.color.value = particleColor;
+    pJS.particles.line_linked.color = lineColor;
+    pJS.fn.particlesRefresh();
+  }
 }
 
 // Smooth scrolling for navigation links
