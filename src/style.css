@@ -535,6 +535,8 @@ h4 {
     font-weight: bold;
     font-size: 14px;
     transition: all .15s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .button::before,
