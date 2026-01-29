@@ -1,5 +1,29 @@
 import './style.css';
 
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('theme-toggle') as HTMLInputElement;
+const body = document.body;
+
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
+if (currentTheme === 'light') {
+  body.classList.add('light-mode');
+  if (themeToggle) themeToggle.checked = true;
+}
+
+// Toggle theme on checkbox change
+if (themeToggle) {
+  themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+      body.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+    } else {
+      body.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
@@ -21,9 +45,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector('.navbar') as HTMLElement;
 window.addEventListener('scroll', () => {
   if (window.scrollY > 100) {
-    navbar.style.background = 'rgba(10, 10, 15, 0.98)';
+    navbar.style.background = body.classList.contains('light-mode') 
+      ? 'rgba(255, 255, 255, 0.98)' 
+      : 'rgba(10, 10, 15, 0.98)';
   } else {
-    navbar.style.background = 'rgba(10, 10, 15, 0.95)';
+    navbar.style.background = body.classList.contains('light-mode')
+      ? 'rgba(255, 255, 255, 0.95)'
+      : 'rgba(10, 10, 15, 0.95)';
   }
 });
 
