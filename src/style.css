@@ -499,6 +499,7 @@ h4 {
     height: 100%;
     border-radius: 15px;
     transition: 0.3s;
+    pointer-events: none;
 }
 
 .checkbox:checked~.slider {
@@ -516,6 +517,7 @@ h4 {
     box-shadow: inset 8px -3px 0px 0px var(--light);
     background-color: var(--dark);
     transition: 0.3s;
+    pointer-events: none;
 }
 
 .checkbox:checked~.slider::before {
