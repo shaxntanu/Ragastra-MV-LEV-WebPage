@@ -111,8 +111,12 @@ particlesJS('particles-js', {
 const themeToggle = document.getElementById('theme-toggle') as HTMLInputElement;
 const body = document.body;
 
+console.log('Theme toggle element:', themeToggle);
+
 // Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
+console.log('Current theme:', currentTheme);
+
 if (currentTheme === 'light') {
   body.classList.add('light-mode');
   if (themeToggle) themeToggle.checked = true;
@@ -121,18 +125,26 @@ if (currentTheme === 'light') {
 // Toggle theme on checkbox change
 if (themeToggle) {
   themeToggle.addEventListener('change', () => {
+    console.log('Toggle changed! Checked:', themeToggle.checked);
+    
     if (themeToggle.checked) {
       body.classList.add('light-mode');
       localStorage.setItem('theme', 'light');
-      // Update particles color for light mode
-      updateParticlesColor('#ff4500', '#ff6b35');
+      console.log('Switched to light mode');
+      // Update navbar background
+      const navbar = document.querySelector('.navbar') as HTMLElement;
+      if (navbar) navbar.style.background = 'rgba(255, 255, 255, 0.95)';
     } else {
       body.classList.remove('light-mode');
       localStorage.setItem('theme', 'dark');
-      // Update particles color for dark mode
-      updateParticlesColor('#ff4500', '#ff6b35');
+      console.log('Switched to dark mode');
+      // Update navbar background
+      const navbar = document.querySelector('.navbar') as HTMLElement;
+      if (navbar) navbar.style.background = 'rgba(0, 0, 0, 0.95)';
     }
   });
+} else {
+  console.error('Theme toggle element not found!');
 }
 
 // Function to update particles color
