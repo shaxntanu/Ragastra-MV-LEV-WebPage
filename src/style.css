@@ -467,64 +467,7 @@ h4 {
     }
 }
 
-/* Toggle Switch Styles */
-.toggle-switch {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    --light: #d8dbe0;
-    --dark: #28292c;
-    --link: rgb(27, 129, 112);
-    --link-hover: rgb(24, 94, 82);
-}
 
-.switch-label {
-    position: absolute;
-    width: 100%;
-    height: 30px;
-    background-color: var(--dark);
-    border-radius: 15px;
-    cursor: pointer;
-    border: 2px solid var(--dark);
-}
-
-.checkbox {
-    position: absolute;
-    display: none;
-}
-
-.slider {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    transition: 0.3s;
-    pointer-events: none;
-}
-
-.checkbox:checked~.slider {
-    background-color: var(--light);
-}
-
-.slider::before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    box-shadow: inset 8px -3px 0px 0px var(--light);
-    background-color: var(--dark);
-    transition: 0.3s;
-    pointer-events: none;
-}
-
-.checkbox:checked~.slider::before {
-    transform: translateX(30px);
-    background-color: var(--dark);
-    box-shadow: none;
-}
 
 /* Button Styles */
 .button {
@@ -648,61 +591,6 @@ h4 {
     background-color: #fff;
 }
 
-/* Light Mode Styles */
-body.light-mode {
-    --dark-bg: #f5f5f5;
-    --card-bg: #ffffff;
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    background-color: var(--dark-bg);
-    color: var(--text-primary);
-}
-
-body.light-mode .navbar {
-    background: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(255, 69, 0, 0.3);
-}
-
-body.light-mode .nav-links a {
-    color: #000000;
-}
-
-body.light-mode .logo {
-    color: #ff4500;
-}
-
-body.light-mode .about,
-body.light-mode .concept,
-body.light-mode .vision,
-body.light-mode .commitment {
-    background: #ffffff;
-}
-
-body.light-mode .concept-card,
-body.light-mode .feature-card,
-body.light-mode .highlight-item {
-    background: rgba(255, 69, 0, 0.08);
-    border-color: rgba(255, 69, 0, 0.4);
-}
-
-body.light-mode .about-content,
-body.light-mode .vision-text,
-body.light-mode .commitment-content,
-body.light-mode .concept-card,
-body.light-mode .feature-card p,
-body.light-mode .highlight-item p {
-    color: #333333;
-}
-
-body.light-mode .glitch {
-    color: #ff4500;
-}
-
-body.light-mode .hero h2,
-body.light-mode .tagline {
-    color: #ff6b35;
-}
-
 /* Social Media Button Container */
 .button-container {
     display: flex;
@@ -741,20 +629,6 @@ body.light-mode .tagline {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Light mode adjustments for social buttons */
-body.light-mode .button-container .button {
-    background-color: #ff4500;
-    border-color: #ff4500;
-}
-
-body.light-mode .button-container .button:hover {
-    background-color: #000;
-}
-
-body.light-mode .button-container .button:hover .btn-svg {
-    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 /* Connect Section */

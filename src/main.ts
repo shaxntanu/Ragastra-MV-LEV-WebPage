@@ -113,46 +113,6 @@ function initApp() {
     retina_detect: true
   });
 
-  // Theme Toggle Functionality
-  const themeToggle = document.getElementById('theme-toggle') as HTMLInputElement;
-  const body = document.body;
-
-  console.log('Theme toggle element:', themeToggle);
-
-  // Check for saved theme preference or default to dark mode
-  const currentTheme = localStorage.getItem('theme') || 'dark';
-  console.log('Current theme:', currentTheme);
-
-  if (currentTheme === 'light') {
-    body.classList.add('light-mode');
-    if (themeToggle) themeToggle.checked = true;
-  }
-
-  // Toggle theme on checkbox change
-  if (themeToggle) {
-    themeToggle.addEventListener('change', () => {
-      console.log('Toggle changed! Checked:', themeToggle.checked);
-
-      if (themeToggle.checked) {
-        body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
-        console.log('Switched to light mode');
-        // Update navbar background
-        const navbar = document.querySelector('.navbar') as HTMLElement;
-        if (navbar) navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-      } else {
-        body.classList.remove('light-mode');
-        localStorage.setItem('theme', 'dark');
-        console.log('Switched to dark mode');
-        // Update navbar background
-        const navbar = document.querySelector('.navbar') as HTMLElement;
-        if (navbar) navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-      }
-    });
-  } else {
-    console.error('Theme toggle element not found!');
-  }
-
   // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -174,13 +134,9 @@ function initApp() {
   const navbar = document.querySelector('.navbar') as HTMLElement;
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
-      navbar.style.background = body.classList.contains('light-mode')
-        ? 'rgba(255, 255, 255, 0.98)'
-        : 'rgba(0, 0, 0, 0.98)';
+      navbar.style.background = 'rgba(0, 0, 0, 0.98)';
     } else {
-      navbar.style.background = body.classList.contains('light-mode')
-        ? 'rgba(255, 255, 255, 0.95)'
-        : 'rgba(0, 0, 0, 0.95)';
+      navbar.style.background = 'rgba(0, 0, 0, 0.95)';
     }
   });
 
