@@ -147,16 +147,6 @@ if (themeToggle) {
   console.error('Theme toggle element not found!');
 }
 
-// Function to update particles color
-function updateParticlesColor(particleColor: string, lineColor: string) {
-  if (typeof particlesJS !== 'undefined' && (window as any).pJSDom && (window as any).pJSDom[0]) {
-    const pJS = (window as any).pJSDom[0].pJS;
-    pJS.particles.color.value = particleColor;
-    pJS.particles.line_linked.color = lineColor;
-    pJS.fn.particlesRefresh();
-  }
-}
-
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
